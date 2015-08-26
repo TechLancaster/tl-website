@@ -1,5 +1,5 @@
 # Tech Lancaster
-The Official Tech Lancaster Website... Now with 20% more Tech Lancaster!
+_The Official Tech Lancaster Website... Now with 20% more Tech Lancaster!_
 
 ## Objective
 The goal of this site is to be the one stop shop for the tech community in the Lancaster area. The old TL site was just a home for the TL meetup. The new site can be an umbrella for all of them. This isn't a corporate take-over of all the meetups, though. We just think the community could benefit from a central location to dive off from. 
@@ -17,5 +17,10 @@ Our initial thoughts are as follows:
 - A light PHP framework called [Silex](http://silex.sensiolabs.org/)
 - [Bootstrap Sass](https://github.com/twbs/bootstrap-sass) on the front
 - Scraping the [community calendar](https://www.google.com/calendar/embed?src=6l7e832ee9bemt1i9c42vltrug%40group.calendar.google.com)
+- Mocks and assets are in the /assets directory, using the following fonts:
+    - Lato Regular
+    - Lato Light
+    - Lato Light Italic
+    - Oswald Regular
 
 As you can see, this repo is pretty bare. These are not set in stone. Yet...
