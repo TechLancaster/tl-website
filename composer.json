@@ -1,0 +1,12 @@
+{
+    "name": "techlancaster/community-site",
+    "description": "The Official Tech Lancaster Website... Now with 20% more Tech Lancaster!",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "TechLancaster",
+            "email": "tyler@theindustrialresolution.com"
+        }
+    ],
+    "require": {}
+}
