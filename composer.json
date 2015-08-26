@@ -8,5 +8,7 @@
             "email": "tyler@theindustrialresolution.com"
         }
     ],
-    "require": {}
+    "require": {
+        "silex/silex": "^1.3"
+    }
 }
