@@ -1,6 +1,14 @@
-/vendor/
-web/.sass-cache
-web/stylesheets
-.idea
+# Project Files
 conf/*
 !conf/quickstart.php
+web/.sass-cache
+web/stylesheets/*.css
+
+# Package Files
+/vendor/
+
+# IDE Files
+.idea
+
+# OS Files
+.DS_Store
