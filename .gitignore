@@ -1,2 +1,5 @@
 /vendor/
 web/.sass-cache
+.idea
+conf/*
+!conf/quickstart.php
