@@ -9,7 +9,16 @@ The central aspect of the new site will be a mirror of the existing community ca
 We'll also try to create a compendium of resources for all of us. Want to start up a new meetup? We'll have info for that. New to the area and looking to plug in? We've got you covered. And if you have any other ideas for the site, let us know. We're building this together.
 
 ## Contribute
-Mi casa es su casa. Everyone is welcome to submit issues and/or pull requests. Come out to [hacknight](http://www.hacklancaster.net/) on Wednesday, August 26th, to help get the ball rolling!
+Mi casa es su casa. Everyone is welcome to submit issues and/or pull requests. Or jam in person at  [hacknight](http://www.hacklancaster.net/). Here's what you need to get started:
+
+1. Make sure you've got these installed:
+    - Composer
+    - Bundler
+2. Clone/Fork the repo
+3. Run `composer install`
+4. Run `bundle`
+5. In `/web`, run `php -S localhost:8000`
+6. View the project in a browser at that url
 
 ## Details
 Our initial thoughts are as follows:
@@ -22,5 +31,3 @@ Our initial thoughts are as follows:
     - Lato Light
     - Lato Light Italic
     - Oswald Regular
-
-As you can see, this repo is pretty bare. These are not set in stone. Yet...
