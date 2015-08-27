@@ -80,4 +80,9 @@ $app->get('/fetchevents', function () use ($app) {
     //TODO store these in a json file for use in the application
 });
 
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('index.twig', array(
+    ));
+});
+
 $app->run();
