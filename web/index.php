@@ -16,4 +16,9 @@ $app->get('/hello/{name}', function ($name) use ($app) {
     ));
 });
 
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('index.twig', array(
+    ));
+});
+
 $app->run();
