@@ -1,10 +1,28 @@
+//
+// Variables
+// --------------------------------------------------
 $light-blue: #2d83ba;  // $body-bg
 $dark-blue:  #053E4C;  // $brand-primary
 $orange:     #F09740;  // $brand-success
 $gray:       #242A2F;  // $gray
 
+//
+// Sections
+// --------------------------------------------------
 .tl-header {
     background-image: url("../images/header_overlay.jpg")
+}
+
+.tl-bg-gold {
+    background-color: $orange;
+}
+
+.tl-bg-gray {
+    background-color: $gray;
+}
+
+.tl-bg-light-blue {
+    background-color: $light-blue;
 }
 
 .tl-footer {
@@ -18,6 +36,9 @@ $gray:       #242A2F;  // $gray
     text-transform: capitalize;
 }
 
+//
+// Content
+// --------------------------------------------------
 .tl-event-tiles {
     max-width: 1000px;
     margin: 0 auto;
@@ -61,16 +82,4 @@ $gray:       #242A2F;  // $gray
         margin-top: 15px;
         height: 2.5em;
     }
-}
-
-.tl-bg-gold {
-    background-color: $orange;
-}
-
-.tl-bg-gray {
-    background-color: $gray;
-}
-
-.tl-bg-light-blue {
-    background-color: $light-blue;
 }
