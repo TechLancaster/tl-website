@@ -1,26 +1,12 @@
-$light-blue: #2d83ba;
-$orange: #F09740;
-$dark-blue: #053E4C;
-$grey: #242A2F;
-$text: #FFF;
-
-body {
-    color: $text;
-    font-family: "Lato", sans-serif;
-    font-size: 16px;
-}
-a {
-    font-family: "Lato", sans-serif;
-    font-style: italic;
-    color: $text;
-    &:hover, &:active, &:focus {
-        color: $text;
-    }
-}
+$light-blue: #2d83ba;  // $body-bg
+$dark-blue:  #053E4C;  // $brand-primary
+$orange:     #F09740;  // $brand-success
+$gray:       #242A2F;  // $gray
 
 .tl-header {
     background-image: url("../images/header_overlay.jpg")
 }
+
 .tl-footer {
     font-size: .8em;
     padding: 15px;
@@ -36,10 +22,12 @@ a {
     max-width: 1000px;
     margin: 0 auto;
 }
+
 /* event tiles checker pattern */
 .tl-event-tiles .col-md-4:nth-of-type(2n+1) {
     background-color: $dark-blue;
 }
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
     .tl-event-tiles {
@@ -51,6 +39,7 @@ a {
         }
     }
 }
+
 .tl-event-tile {
     padding-top: 25px;
     padding-bottom: 40px;
@@ -77,9 +66,11 @@ a {
 .tl-bg-gold {
     background-color: $orange;
 }
-.tl-bg-grey {
-    background-color: $grey;
+
+.tl-bg-gray {
+    background-color: $gray;
 }
+
 .tl-bg-light-blue {
     background-color: $light-blue;
 }

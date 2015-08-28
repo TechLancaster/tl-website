@@ -8,15 +8,15 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-// $gray-base:              #000
+$gray-base:              #000000;
 // $gray-darker:            lighten($gray-base, 13.5%) // #222
 // $gray-dark:              lighten($gray-base, 20%)   // #333
-// $gray:                   lighten($gray-base, 33.5%) // #555
+$gray:                   #242A2F;
 // $gray-light:             lighten($gray-base, 46.7%) // #777
-// $gray-lighter:           lighten($gray-base, 93.5%) // #eee
+$gray-lighter:           #FFFFFF;
 
-// $brand-primary:         darken(#428bca, 6.5%) // #337ab7
-// $brand-success:         #5cb85c
+$brand-primary:         #053E4C;
+$brand-success:         #F09740;
 // $brand-info:            #5bc0de
 // $brand-warning:         #f0ad4e
 // $brand-danger:          #d9534f
@@ -26,9 +26,9 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-// $body-bg:               #fff
+$body-bg:               #2d83ba;
 //** Global text color on `<body>`.
-// $text-color:            $gray-dark
+$text-color:            $gray-lighter;
 
 //** Global textual link color.
 // $link-color:            $brand-primary
@@ -41,27 +41,27 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-// $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
 // $font-family-serif:       Georgia, "Times New Roman", Times, serif
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 // $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace
-// $font-family-base:        $font-family-sans-serif
+$font-family-base:        $font-family-sans-serif;
 
-// $font-size-base:          14px
-// $font-size-large:         ceil(($font-size-base * 1.25)) // ~18px
-// $font-size-small:         ceil(($font-size-base * 0.85)) // ~12px
+$font-size-base:          18px;
+$font-size-large:         ceil(($font-size-base * 1.25)); // 20pt
+$font-size-small:         ceil(($font-size-base * 0.85)); // 13.6
 
-// $font-size-h1:            floor(($font-size-base * 2.6)) // ~36px
-// $font-size-h2:            floor(($font-size-base * 2.15)) // ~30px
-// $font-size-h3:            ceil(($font-size-base * 1.7)) // ~24px
-// $font-size-h4:            ceil(($font-size-base * 1.25)) // ~18px
-// $font-size-h5:            $font-size-base
-// $font-size-h6:            ceil(($font-size-base * 0.85)) // ~12px
+$font-size-h1:            floor(($font-size-base * 2.6)); // 41.6
+$font-size-h2:            floor(($font-size-base * 2.15)); // 34.4
+$font-size-h3:            ceil(($font-size-base * 1.7)); // 27.2
+$font-size-h4:            ceil(($font-size-base * 1.25)); // 20
+$font-size-h5:            $font-size-base;
+$font-size-h6:            ceil(($font-size-base * 0.85)); // 13.6
 
 //** Unit-less `line-height` for use in components like buttons.
-// $line-height-base:        1.428571429 // 20/14
+$line-height-base:        1.25;  // 20 / 16
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-// $line-height-computed:    floor(($font-size-base * $line-height-base)) // ~20px
+$line-height-computed:    floor(($font-size-base * $line-height-base));
 
 //** By default, this inherits from the `<body>`.
 // $headings-font-family:    inherit
