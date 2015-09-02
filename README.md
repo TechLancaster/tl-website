@@ -15,10 +15,12 @@ Mi casa es su casa. Everyone is welcome to submit issues and/or pull requests. O
     - Composer
     - Bundler
 2. Clone/Fork the repo
-3. Run `composer install`
-4. Run `bundle`
-5. In `/web`, run `php -S localhost:8000`
-6. View the project in a browser at that url
+3. Run `composer install` to grab PHP dependencies
+4. Run `bundle` to grab other dependencies
+5. Move to the `/web` directory and run `compass compile` to compile the sass
+6. _Optional:_ You can also run `compass watch` to work on sass files and auto-compile them
+7. Also in `/web`, run `php -S localhost:8000` to serve up the project
+8. View the project in a browser at that url
 
 ## Details
 Our initial thoughts are as follows:
