@@ -6,3 +6,112 @@
 
 // Import Bootstrap for Sass
 @import "bootstrap";
+
+//
+// Sections
+// --------------------------------------------------
+header {
+    background-image: url("../images/header_overlay.jpg");
+    padding: $padding-large 0;
+
+    p.tl-tagline {
+        text-align: center;
+        font-style: italic;
+    }
+}
+
+.tl-bg-gold {
+    background-color: $brand-success;
+}
+
+.tl-bg-gray {
+    background-color: $gray;
+}
+
+.tl-bg-light-blue {
+    background-color: $body-bg;
+}
+
+section {
+    padding: $padding-large 0;
+
+    &.tl-section-cal {
+        padding: 0;
+    }
+}
+
+.tl-section-header {
+    padding: $padding-small 0;
+    text-align: center;
+    margin: 0;
+}
+
+footer {
+    font-size: .8em;
+    padding: 15px;
+    background-color: $gray;
+    text-align: center;
+}
+
+//
+// Content
+// --------------------------------------------------
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+/* event tiles checker pattern */
+.tl-event-tile:nth-of-type(2n+1) {
+    background-color: $brand-primary;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .tl-event-tile:nth-of-type(2n+1) {
+        background-color: inherit;
+    }
+    .tl-event-tile:nth-of-type(4n+1), .tl-event-tile:nth-of-type(4n+4) {
+        background-color: $brand-primary;
+    }
+}
+
+.tl-event-tile {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    time.tl-et-date {
+        font-family: "Oswald", Georgia, "Times New Roman", serif;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    h2.tl-et-name {
+        margin: 0 0 1.5em;
+        font-family: "Lato", Helvetica, Arial, sans-serif;
+    }
+
+    p {
+        margin: 0;
+
+        &.tl-et-meta {
+            color: $brand-success;
+        }
+    }
+}
+
+.tl-button {
+    /*
+    color: $gray;
+    background-color: $brand-success;
+    border: 2px solid $brand-success;
+    padding: $padding;
+    display: block;
+
+    &:hover {
+        background-color: $gray;
+        color: $brand-success;
+    }
+    */
+    color: $brand-success;
+}

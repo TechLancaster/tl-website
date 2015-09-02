@@ -4,6 +4,16 @@
 // Variables
 // --------------------------------------------------
 
+// Custom Variables
+$light-blue: #2d83ba;  // $body-bg
+$dark-blue:  #052E4C;  // $brand-primary
+$orange:     #F09740;  // $brand-success
+
+$padding:       1em;
+$padding-small: $padding / 2;
+$padding-large: $padding * 2;
+
+
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
@@ -15,8 +25,8 @@ $gray:                   #242A2F;
 // $gray-light:             lighten($gray-base, 46.7%) // #777
 $gray-lighter:           #FFFFFF;
 
-$brand-primary:         #052E4C;
-$brand-success:         #F09740;
+$brand-primary:         #052E4C; // dark blue
+$brand-success:         #F09740; // orange
 // $brand-info:            #5bc0de
 // $brand-warning:         #f0ad4e
 // $brand-danger:          #d9534f
@@ -26,7 +36,7 @@ $brand-success:         #F09740;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #2d83ba;
+$body-bg:               #2d83ba; // light blue
 //** Global text color on `<body>`.
 $text-color:            $gray-lighter;
 
