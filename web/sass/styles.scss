@@ -89,6 +89,8 @@ h1 {
     h2.tl-et-name {
         margin: 0 0 1.5em;
         font-family: "Lato", Helvetica, Arial, sans-serif;
+        height: auto;
+        overflow: visible;
     }
 
     p {
@@ -97,7 +99,35 @@ h1 {
         &.tl-et-meta {
             color: $brand-success;
         }
+
+      &.tl-et-link {
+        /* TODO: fix this hack when content is truncated by backend code... */
+        position: relative;
+
+        &:after {
+          content: "...";
+          position: absolute;
+          top: 0;
+          right: -10px;
+        }
+
+        a {
+          width: 97%;
+          overflow: hidden;
+        }
+      }
     }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .tl-event-tile {
+    h2.tl-et-name {
+      /* TODO: fix this hack when content is truncated by backend code... */
+      height: 87px;
+      overflow: hidden;
+    }
+  }
 }
 
 .tl-button {

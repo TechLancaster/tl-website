@@ -49,15 +49,31 @@
                     <article class="col-md-4 col-sm-6 tl-event-tile">
                         <time class="tl-et-date" datetime="2015-08-16 18:00">8/16</time>
 
-                        <h2 class="tl-et-name">Hack Night</h2>
+                        {# NOTE: the title should handle a max of ~50 characters to accomodate 3 lines
+                        at it's smallest width (browser width of 992px). #}
+                        {% set title = "Hack Night Hack Night Hack Night Hack Night Hack Night Hack Night Hack Night " %}
+                        <h2 class="tl-et-name">{{ title | truncate(47) }}</h2>
 
                         <p class="tl-et-meta">
                             <time datetime="2015-08-16 18:00">6pm</time> | Co-modo
                         </p>
 
                         <p class="tl-et-link">
-                            <a href="http://hacklancaster.net">hacklancaster.net</a>
+                            {# NOTE: the link should be truncated at ~30 characters to accomodate 1 line
+                            at it's smallest width (browser width of 992px).
+
+                            OR: we can use this regex to trim the url
+                            https://regex101.com/r/wN6cZ7/40 #}
+                            {% set link = "http://www.hacklancaster.net/really/long/and/unnecessary/url.html" %}
+                            {#<a href="{{ link }}">{{ link | truncate(31) }}</a>#}
+                            <a href="{{ link }}">{{ link }}</a>
                         </p>
+
+                        {# NOTE: this is for testing non-uniform heights in the grid
+                        {% if( i % 5 == 0 ) %}
+                            <p>content <br/> content <br/> content</p>
+                        {%  endif %}
+                        #}
                     </article>
                     {% endfor %}
                 </div>
