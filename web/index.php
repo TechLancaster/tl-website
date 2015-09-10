@@ -86,6 +86,12 @@ $app->get('/fetchevents', function () use ($app) {
     //TODO store these in a json file for use in the application
 });
 
+$app->get('/meetup', function () use ($app) {
+    return $app['twig']->render('meetup.twig', array(
+
+    ));
+});
+
 $app->get('/', function () use ($app) {
     return $app['twig']->render('index.twig', array(
     ));
