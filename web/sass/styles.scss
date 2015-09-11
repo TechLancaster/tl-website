@@ -61,6 +61,11 @@ h1 {
     letter-spacing: 5px;
 }
 
+a {
+  color: $light-blue;
+  transition: color 0.3s, background 0.3s, border 0.3s, text-decoration 0.3s;
+}
+
 /* event tiles checker pattern */
 .tl-event-tile:nth-of-type(2n+1) {
     background-color: $brand-primary;
@@ -73,6 +78,13 @@ h1 {
     }
     .tl-event-tile:nth-of-type(4n+1), .tl-event-tile:nth-of-type(4n+4) {
         background-color: $brand-primary;
+
+      a {
+        color: $light-blue;
+        &:hover {
+          color: darken($light-blue, 15%);
+        }
+      }
     }
 }
 
@@ -160,19 +172,40 @@ h1 {
 }
 
 .tl-button {
-    /*
-    color: $gray;
-    background-color: $brand-success;
-    border: 2px solid $brand-success;
-    padding: $padding;
-    display: block;
+  display: block;
+  margin: 2em;
+  padding: ($padding / 2) $padding;
+  color: $light-blue;
+  border: 2px solid $light-blue;
+  background: $gray;
+  text-align: center;
 
-    &:hover {
-        background-color: $gray;
-        color: $brand-success;
-    }
-    */
-    color: $brand-success;
+  &:hover {
+    //border-color: $brand-success;
+    color: $gray;
+    background: $light-blue;
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .tl-button {
+    display: inline-block;
+    margin: 1em 0 0;
+  }
+}
+
+.tl-social-icons {
+  a + a {
+    margin-top: 2em;
+  }
+}
+
+@media (min-width: 768px) {
+  .tl-social-icons {
+    @include vertical-align;
+    position: absolute;
+  }
 }
 
 //
