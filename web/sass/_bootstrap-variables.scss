@@ -74,7 +74,7 @@ $line-height-base:        1.5;  // 20 / 16
 $line-height-computed:    floor(($font-size-base * $line-height-base));
 
 //** By default, this inherits from the `<body>`.
-$headings-font-family:    "Oswald", Georgia, "Times New Roman", serif;
+$headings-font-family:    "Lato", Helvetica, Arial, sans-serif;
 $headings-font-weight:    500;
 // $headings-line-height:    1.1
 $headings-color:          $gray-lighter;
@@ -856,3 +856,25 @@ $grid-gutter-width:         60px;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+@mixin tl-button($fg, $bg) {
+  display: block;
+  margin: 2em;
+  padding: ($padding / 2) $padding;
+  color: $fg;
+  border: 2px solid $fg;
+  background: $bg;
+  text-align: center;
+
+  &:hover {
+    background: $fg;
+    color: $bg;
+    border-color: $fg;
+  }
+
+  @media (min-width: 768px) {
+      display: inline-block;
+      margin: 1em 0 0;
+  }
+}
+
