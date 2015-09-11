@@ -16,8 +16,8 @@
     <main role="main" class="tl-meetup">
         <section class="tl-bg-gray">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
+                <div class="row flex-row flex-row-wrap">
+                    <div class="col-sm-10 col-xs-12">
                         <h1>The Meetup.</h1>
 
                         <ul class="row tl-list">
@@ -31,12 +31,14 @@
 
                         <p>Every Third Tuesday, 6:30pm</p>
 
-                        <p>@ the <a href="http://mapq.st/1qflJDW">Lancaster Science Factory</a></p>
+                        <p>@ <a href="http://mapq.st/1qflJDW">the Lancaster Science Factory</a></p>
 
                         <p><em>And yes, there will be beer.</em></p>
                     </div>
 
-                    {% include 'social.html' %}
+                    <div class="col-sm-2 col-xs-12">
+                        {% include 'social.html' %}
+                    </div>
                 </div>
             </div>
         </section><!-- section.tl-bg-gray -->
@@ -50,7 +52,7 @@
 
             <div class="container">
                 <div class="row flex-row flex-row-wrap">
-                    <article class="col-sm-4 tl-event-tile">
+                    <article class="col-md-4 col-xs-12 tl-event-tile">
                         <h3>What Is It?</h3>
 
                         <p>A meetup for and by the local tech community. We'll focus strictly on tech - no sales & marketing here. Open to anyone with an open mind.</p>
@@ -58,13 +60,13 @@
                         <p>We gather at the Science Factory for a few talks on any topic people want to share. The night often continues across the street at Quips Pub.</p>
                     </article>
 
-                    <article class="col-sm-4 tl-event-tile">
+                    <article class="col-md-4 col-xs-12 tl-event-tile">
                         <h3>The Format</h3>
 
                         <p>Anyone is welcome to speak on technology focused topics. Each meeting we'll have three speakers with three different tech topics, followed by Q & A.</p>
                     </article>
 
-                    <article class="col-sm-4 tl-event-tile">
+                    <article class="col-md-4 col-xs-12 tl-event-tile">
                         <h3>Tips For Presenters</h3>
 
                         <ul>
@@ -73,7 +75,7 @@
                             <li>Don't pitch a product, show the tech behind it</li>
                         </ul>
 
-                        <a href="https://docs.google.com/forms/d/132zR0foCpsmytrNUSGhhjV2hxB1fg5m0F74zk-MdRZo/viewform?usp=send_form">Want to Present? Sign Up Here!</a>
+                        <a class="tl-button-orange" href="https://docs.google.com/forms/d/132zR0foCpsmytrNUSGhhjV2hxB1fg5m0F74zk-MdRZo/viewform?usp=send_form">Want to Present? Sign Up Here!</a>
                     </article>
                 </div>
             </div>
