@@ -1,1 +1,34 @@
-{{ message }}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Technology,Lancaster,Coding,Programming,Meetup">
+
+    <title>Tech Lancaster</title>
+
+    {% include 'topscripts.html' %}
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <main>
+        <section class="tl-bg-gray tl-section-cal">
+            <h1 class="tl-section-header tl-bg-light-blue">Event Fetcher</h1>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        {{ message }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    {% include 'bottomscripts.html'%}
+</body>
+</html>

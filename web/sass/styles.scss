@@ -89,7 +89,7 @@ h1 {
     h2.tl-et-name {
         margin: 0 0 1.5em;
         font-family: "Lato", Helvetica, Arial, sans-serif;
-        height: auto;
+        height: initial;
         overflow: visible;
     }
 
@@ -98,36 +98,65 @@ h1 {
 
         &.tl-et-meta {
             color: $brand-success;
+            height: initial;
+            overflow: visible;
+
+            a {
+              color: $brand-success;
+
+              &:hover {
+                color: darken($brand-success, 15%);
+              }
+            }
         }
 
-      &.tl-et-link {
-        /* TODO: fix this hack when content is truncated by backend code... */
-        position: relative;
-
-        &:after {
-          content: "...";
-          position: absolute;
-          top: 0;
-          right: -10px;
+        &.tl-et-link {
+          height: initial;
+          overflow: visible;
         }
-
-        a {
-          width: 97%;
-          overflow: hidden;
-        }
-      }
     }
 }
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) {
   .tl-event-tile {
     h2.tl-et-name {
-      /* TODO: fix this hack when content is truncated by backend code... */
       height: 87px;
       overflow: hidden;
     }
+    p.tl-et-meta {
+      height: 54px;
+      overflow: hidden;
+    }
+
+    p.tl-et-link {
+      height: 81px;
+      overflow: hidden;
+    }
   }
+}
+
+.tl-special-tile {
+  background: $brand-success;
+  //TODO: fix this absolute height...
+  height: 382.5px;
+  text-align: center;
+
+  a {
+    display: block;
+    color: white;
+    font-family: "Oswald", Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* vertical center */
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
 }
 
 .tl-button {

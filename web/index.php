@@ -60,7 +60,7 @@ $app->get('/fetchevents', function () use ($app) {
 
     $calendarId = '6l7e832ee9bemt1i9c42vltrug@group.calendar.google.com';
     $optParams = array(
-        'maxResults' => 30,
+        'maxResults' => 29,
         'orderBy' => 'startTime',
         'singleEvents' => TRUE,
         'timeMin' => date('c'),
@@ -81,13 +81,66 @@ $app->get('/fetchevents', function () use ($app) {
         $event->setSummary($googleEvent->getSummary());
         $events[] = $event;
     }
+
+    // Write the events to a file
     $json = json_encode($events);
+    $handler = fopen("events.json", 'w')
+        or die("Error opening output file");
+    fwrite($handler, $json);
+    fclose($handler);
+
     return $app['twig']->render('calendar.twig', array('message'=>$json));
-    //TODO store these in a json file for use in the application
 });
 
 $app->get('/', function () use ($app) {
+    $json = json_decode(file_get_contents("events.json"), true);
+
+    // Modify the data to fit into the template
+    foreach ($json as $key => $event) {
+        /* the title should handle a max of ~50 characters to accomodate 3 lines
+            at it's smallest width (browser width of 992px). */
+        if(strlen($event['summary']) > 47) {
+            $json[$key]['summary'] = substr($event['summary'], 0, 47) . "...";
+        }
+
+        /* description contains url. code found at:
+           http://krasimirtsonev.com/blog/article/php--find-links-in-a-string-and-replace-them-with-actual-html-link-tags */
+        $str = $event['description'];
+        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+        $urls = array();
+        $urlsToReplace = array();
+        if(preg_match_all($reg_exUrl, $str, $urls)) {
+            $numOfMatches = count($urls[0]);
+            $numOfUrlsToReplace = 0;
+            for($i=0; $i<$numOfMatches; $i++) {
+                $alreadyAdded = false;
+                $numOfUrlsToReplace = count($urlsToReplace);
+                for($j=0; $j<$numOfUrlsToReplace; $j++) {
+                    if($urlsToReplace[$j] == $urls[0][$i]) {
+                        $alreadyAdded = true;
+                    }
+                }
+                if(!$alreadyAdded) {
+                    array_push($urlsToReplace, $urls[0][$i]);
+                }
+            }
+            $numOfUrlsToReplace = count($urlsToReplace);
+            for($i=0; $i<$numOfUrlsToReplace; $i++) {
+                $str = str_replace($urlsToReplace[$i], "<a href=\"".$urlsToReplace[$i]."\">".$urlsToReplace[$i]."</a> ", $str);
+            }
+            error_log($str);
+            $json[$key]['description'] = $str;
+        }
+
+        /* location needs link and truncation
+           (for one line, cap at ~30 characters) */
+        $location = $event['location'];
+        $short_location = substr($location, 0, strpos($location, ','));
+        $json[$key]['location'] = '<a href="https://www.google.com/maps/?q=' . $location . '" >' . $short_location . '</a>';
+    }
+
     return $app['twig']->render('index.twig', array(
+        'events'=>$json
     ));
 });
 
