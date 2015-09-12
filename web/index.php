@@ -18,25 +18,19 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
 ));
 
-$app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
+$app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
     $twig->addExtension(new \Twig_Extensions_Extension_Text($app));
 
     return $twig;
 }));
 
-$app->get('/hello/{name}', function ($name) use ($app) {
-    return $app['twig']->render('hello.twig', array(
-        'name' => $name,
-    ));
-});
-
 $app->get('/fetchevents', function () use ($app) {
     // Get the API client and construct the service object.
     $client = new Google_Client();
     $client->setApplicationName('Google Calendar API Quickstart');
-    $client->setScopes(implode(' ', array(
-            Google_Service_Calendar::CALENDAR_READONLY)
-    ));
+    $client->setScopes(
+        implode(' ', array(Google_Service_Calendar::CALENDAR_READONLY))
+    );
     $client->setAuthConfigFile(__DIR__.'/../conf/client_secret.json');
     $client->setAccessType('offline');
     // Load previously authorized credentials from a file.
@@ -62,7 +56,7 @@ $app->get('/fetchevents', function () use ($app) {
     $optParams = array(
         'maxResults' => 29,
         'orderBy' => 'startTime',
-        'singleEvents' => TRUE,
+        'singleEvents' => true,
         'timeMin' => date('c'),
     );
     $results = $service->events->listEvents($calendarId, $optParams);
@@ -99,13 +93,19 @@ $app->get('/meetup', function () use ($app) {
 });
 
 $app->get('/', function () use ($app) {
-    $json = json_decode(file_get_contents("events.json"), true);
+    if (file_exists("events.json") &&
+        ($file = file_get_contents("events.json")) !== false
+    ) {
+        $json = json_decode($file, true);
+    } else {
+        $json = array();
+    }
 
     // Modify the data to fit into the template
     foreach ($json as $key => $event) {
         /* the title should handle a max of ~50 characters to accomodate 3 lines
             at it's smallest width (browser width of 992px). */
-        if(strlen($event['summary']) > 47) {
+        if (strlen($event['summary']) > 47) {
             $json[$key]['summary'] = substr($event['summary'], 0, 47) . "...";
         }
 
@@ -115,24 +115,28 @@ $app->get('/', function () use ($app) {
         $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
         $urls = array();
         $urlsToReplace = array();
-        if(preg_match_all($reg_exUrl, $str, $urls)) {
+        if (preg_match_all($reg_exUrl, $str, $urls)) {
             $numOfMatches = count($urls[0]);
             $numOfUrlsToReplace = 0;
-            for($i=0; $i<$numOfMatches; $i++) {
+            for ($i=0; $i<$numOfMatches; $i++) {
                 $alreadyAdded = false;
                 $numOfUrlsToReplace = count($urlsToReplace);
-                for($j=0; $j<$numOfUrlsToReplace; $j++) {
-                    if($urlsToReplace[$j] == $urls[0][$i]) {
+                for ($j=0; $j<$numOfUrlsToReplace; $j++) {
+                    if ($urlsToReplace[$j] == $urls[0][$i]) {
                         $alreadyAdded = true;
                     }
                 }
-                if(!$alreadyAdded) {
+                if (!$alreadyAdded) {
                     array_push($urlsToReplace, $urls[0][$i]);
                 }
             }
             $numOfUrlsToReplace = count($urlsToReplace);
-            for($i=0; $i<$numOfUrlsToReplace; $i++) {
-                $str = str_replace($urlsToReplace[$i], "<a href=\"".$urlsToReplace[$i]."\">".$urlsToReplace[$i]."</a> ", $str);
+            for ($i=0; $i<$numOfUrlsToReplace; $i++) {
+                $str = str_replace(
+                    $urlsToReplace[$i],
+                    "<a href=\"".$urlsToReplace[$i]."\">".$urlsToReplace[$i]."</a> ",
+                    $str
+                );
             }
             error_log($str);
             $json[$key]['description'] = $str;
@@ -142,7 +146,8 @@ $app->get('/', function () use ($app) {
            (for one line, cap at ~30 characters) */
         $location = $event['location'];
         $short_location = substr($location, 0, strpos($location, ','));
-        $json[$key]['location'] = '<a href="https://www.google.com/maps/?q=' . $location . '" >' . $short_location . '</a>';
+        $json[$key]['location'] = '<a href="https://www.google.com/maps/?q=' . $location .
+            '" >' . $short_location . '</a>';
     }
 
     return $app['twig']->render('index.twig', array(
