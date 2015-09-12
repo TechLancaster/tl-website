@@ -92,6 +92,12 @@ $app->get('/fetchevents', function () use ($app) {
     return $app['twig']->render('calendar.twig', array('message'=>$json));
 });
 
+$app->get('/meetup', function () use ($app) {
+    return $app['twig']->render('meetup.twig', array(
+
+    ));
+});
+
 $app->get('/', function () use ($app) {
     $json = json_decode(file_get_contents("events.json"), true);
 

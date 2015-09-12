@@ -8,7 +8,7 @@
 @import "bootstrap";
 
 //
-// Sections
+// General - Layout
 // --------------------------------------------------
 header {
     background-image: url("../images/header_overlay.jpg");
@@ -53,26 +53,142 @@ footer {
     text-align: center;
 }
 
+.flex-row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.flex-row-wrap {
+  -webkit-flex-flow: row wrap;
+  align-content: flex-start;
+  flex: 0;
+}
+
+.flex-row > div[class*='col-'], .container-flex > div[class*='col-'] {
+  margin: -.2px;
+}
+
+.flex-row > div[class*='col-'] div, .container-flex > div[class*='col-'] div {
+  width: 100%;
+}
+
+.flex-col {
+  display: flex;
+  display: -webkit-flex;
+  flex: 1 100%;
+  flex-flow: column nowrap;
+}
+
+.flex-grow {
+  display: flex;
+  -webkit-flex: 2;
+  flex: 2;
+}
+
 //
-// Content
+// General - Elements
 // --------------------------------------------------
 h1 {
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 }
 
+a {
+  color: $light-blue;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, background 0.3s, border 0.3s;
+
+  &:hover {
+    text-decoration: none;
+    color: $brand-success;
+    border-color: $brand-success;
+  }
+}
+
+.tl-button-orange {
+  @include tl-button($brand-success, $brand-primary);
+
+}
+
+.tl-button-blue {
+  @include tl-button($brand-primary, $brand-success);
+}
+
+.tl-button-light-blue {
+  @include tl-button($light-blue, $gray);
+}
+
+.tl-social-icons {
+  a {
+    border: none;
+    &:hover {
+      border: none;
+    }
+  }
+
+  a + a {
+    margin-top: 2em;
+  }
+}
+
+@media (min-width: 768px) {
+  .tl-social-icons {
+    @include vertical-align;
+    position: absolute;
+  }
+}
+
+//
+// Page - Home
+// --------------------------------------------------
 /* event tiles checker pattern */
-.tl-event-tile:nth-of-type(2n+1) {
+.tl-event-tile {
+  a {
+    color: lighten($dark-blue, 9%);
+
+    &:hover {
+      color: $brand-success;
+      border-color: $brand-success;
+    }
+  }
+
+  &:nth-of-type(2n+1) {
     background-color: $brand-primary;
+
+    a {
+      color: $light-blue;
+
+      &:hover {
+        color: $brand-success;
+        border-color: $brand-success;
+      }
+    }
+  }
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
     .tl-event-tile:nth-of-type(2n+1) {
-        background-color: inherit;
+      background-color: inherit;
+
+      a {
+        color: lighten($dark-blue, 9%);
+      }
     }
     .tl-event-tile:nth-of-type(4n+1), .tl-event-tile:nth-of-type(4n+4) {
         background-color: $brand-primary;
+
+      a {
+        color: $light-blue;
+        &:hover {
+          color: $brand-success;
+        }
+      }
     }
 }
 
@@ -89,30 +205,30 @@ h1 {
     h2.tl-et-name {
         margin: 0 0 1.5em;
         font-family: "Lato", Helvetica, Arial, sans-serif;
+      color: $brand-success;
         height: initial;
         overflow: visible;
     }
 
     p {
         margin: 0;
+        color: $gray-lighter;
 
         &.tl-et-meta {
-            color: $brand-success;
             height: initial;
             overflow: visible;
-
-            a {
-              color: $brand-success;
-
-              &:hover {
-                color: darken($brand-success, 15%);
-              }
-            }
         }
 
         &.tl-et-link {
           height: initial;
           overflow: visible;
+
+          a {
+            color: $gray-lighter;
+            &:hover {
+              color: $brand-success;
+            }
+          }
         }
     }
 }
@@ -143,34 +259,55 @@ h1 {
 
   a {
     display: block;
-    color: white;
-    font-family: "Oswald", Georgia, "Times New Roman", serif;
+    color: $gray-lighter;
     font-size: 40px;
-    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    /* vertical center */
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    border: none;
+    @include vertical-align;
+
+    &:hover {
+      color: darken($gray-lighter, 15%);
+      border: none;
+    }
   }
 
 }
 
-.tl-button {
-    /*
-    color: $gray;
-    background-color: $brand-success;
-    border: 2px solid $brand-success;
-    padding: $padding;
-    display: block;
+//
+// Page - Meetup
+// --------------------------------------------------
+.tl-list {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+}
 
-    &:hover {
-        background-color: $gray;
-        color: $brand-success;
+@media (min-width: 768px) and (max-width: 991px) {
+  .tl-list {
+  }
+}
+@media (min-width: 992px) {
+  .tl-list {
+    width: 90%;
+    margin: 0 auto 3em;
+  }
+}
+
+.tl-meetup {
+  .tl-bg-gray {
+    text-align: center;
+  }
+
+  .tl-event-tile:nth-of-type(2n+1) {
+    background: $brand-primary;
+
+    .tl-button-orange {
+      color: $brand-success;
+
+      &:hover {
+        color: $brand-primary;
+      }
     }
-    */
-    color: $brand-success;
+  }
 }

@@ -21,6 +21,7 @@ Mi casa es su casa. Everyone is welcome to submit issues and/or pull requests. O
 6. _Optional:_ You can also run `compass watch` to work on sass files and auto-compile them
 7. Also in `/web`, run `php -S localhost:8000` to serve up the project
 8. View the project in a browser at that url
+9. _Note:_ In order to populate the events, visit localhost:8000/fetchevents
 
 ## Details
 Our initial thoughts are as follows:
