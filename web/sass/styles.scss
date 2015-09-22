@@ -11,12 +11,15 @@
 // General - Layout
 // --------------------------------------------------
 header {
-    background-image: url("../images/header_overlay.jpg");
+    background-image: url("../images/header_overlay_dark.jpg");
     padding: $padding-large 0;
 
     p.tl-tagline {
         text-align: center;
         font-style: italic;
+    }
+    img.logo {
+        max-height: 300px;
     }
 }
 
