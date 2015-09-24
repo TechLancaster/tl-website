@@ -102,52 +102,37 @@ $app->get('/', function () use ($app) {
     }
 
     // Modify the data to fit into the template
-    foreach ($json as $key => $event) {
+    foreach ($json as &$event) {
         /* the title should handle a max of ~50 characters to accomodate 3 lines
-            at it's smallest width (browser width of 992px). */
+            at it's smallest width (browser width of 992px).
+            truncate summary at last full word */
         if (strlen($event['summary']) > 47) {
-            $json[$key]['summary'] = substr($event['summary'], 0, 47) . "...";
+            $event['summary'] = wordwrap($event['summary'], 47);
+            $event['summary'] = substr($event['summary'], 0, strpos($event['summary'], "\n")) . '...';
         }
 
-        /* description contains url. code found at:
-           http://krasimirtsonev.com/blog/article/php--find-links-in-a-string-and-replace-them-with-actual-html-link-tags */
-        $str = $event['description'];
-        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-        $urls = array();
-        $urlsToReplace = array();
-        if (preg_match_all($reg_exUrl, $str, $urls)) {
-            $numOfMatches = count($urls[0]);
-            $numOfUrlsToReplace = 0;
-            for ($i=0; $i<$numOfMatches; $i++) {
-                $alreadyAdded = false;
-                $numOfUrlsToReplace = count($urlsToReplace);
-                for ($j=0; $j<$numOfUrlsToReplace; $j++) {
-                    if ($urlsToReplace[$j] == $urls[0][$i]) {
-                        $alreadyAdded = true;
-                    }
-                }
-                if (!$alreadyAdded) {
-                    array_push($urlsToReplace, $urls[0][$i]);
-                }
-            }
-            $numOfUrlsToReplace = count($urlsToReplace);
-            for ($i=0; $i<$numOfUrlsToReplace; $i++) {
-                $str = str_replace(
-                    $urlsToReplace[$i],
-                    "<a href=\"".$urlsToReplace[$i]."\">".$urlsToReplace[$i]."</a> ",
-                    $str
-                );
-            }
-            error_log($str);
-            $json[$key]['description'] = $str;
-        }
+        // make links in description clickable
+        $pattern_url = '/((?:(?:http|ftp)s?:\/\/)?[a-z0-9\-\.]+\.[a-z]{2,5}(?:\/\S*)?)/i';
+        $url_replacement = '<a href="$1">$1</a> ';
+        $event['description'] = preg_replace($pattern_url, $url_replacement, $event['description']);
+        // replace newlines with <br> tag
+        $event['description'] = nl2br($event['description']);
 
         /* location needs link and truncation
            (for one line, cap at ~30 characters) */
-        $location = $event['location'];
-        $short_location = substr($location, 0, strpos($location, ','));
-        $json[$key]['location'] = '<a href="https://www.google.com/maps/?q=' . $location .
-            '" >' . $short_location . '</a>';
+        // init short_location
+        $short_location = $event['location'];
+        // truncate short_location at the first comma
+        if (strpos($short_location, ',') !== false) {
+            $short_location = substr($event['location'], 0, strpos($event['location'], ','));
+        }
+        // truncate short_location after the 30th charater respecting whole words
+        if (strlen($short_location) > 30) {
+            $short_location = wordwrap($short_location, 30);
+            $short_location = substr($short_location, 0, strpos($short_location, "\n"));
+        }
+        // create location as link with short text
+        $event['location'] = '<a href="https://www.google.com/maps/?q=' . $event['location'] . '" >' . $short_location . '</a>';
     }
 
     return $app['twig']->render('index.twig', array(
