@@ -1,0 +1,20 @@
+# Turn on the Rewrite Engine
+RewriteEngine On
+
+# ------------------------------------------------------------------------------
+# Dynamic RewriteBase
+# ------------------------------------------------------------------------------
+# For most servers, this will be able to dynamically find your site's root,
+# but if it doesn't for you, comment out these next two lines...
+RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+RewriteRule ^(.*)$ - [E=BASE:%1]
+
+# ...and uncomment out the following line, then set as you need to
+RewriteBase /
+
+# ------------------------------------------------------------------------------
+# Remove the Index File
+# ------------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
