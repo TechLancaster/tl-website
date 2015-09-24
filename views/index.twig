@@ -13,11 +13,38 @@
 <body>
     {% include 'header.html' %}
 
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Resources for Meetups</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://twitter.com/tech_lancaster" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="https://github.com/techlancaster" target="_blank"><i class="fa fa-github-square"></i></a></li>
+            <li><a href="http://youtube.com"  target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
     <main role="main">
         <section class="tl-bg-gray">
             <div class="container">
                 <div class="row flex-row flex-row-wrap">
-                    <div class="col-sm-9">
+                    <div class="col-sm-12">
                         <p>
                             TechLancaster started as a simple local meetup, a safe place for like-minded tech people to come together and geek out.
                             We've strived to be open, welcoming, and supportive to everyone in the community, regardless of their interest or background.
@@ -27,12 +54,12 @@
                             As members of the tech community, we want to support this growth and ensure the community remains a healthy, open, and welcoming
                             place for all its current and future members.
                         </p>
-                        <a href="https://github.com/TechLancaster/community/issues" class="tl-button-light-blue" >Resources For Meetups</a>
+                        {# <a href="https://github.com/TechLancaster/community/issues" class="tl-button-light-blue" >Resources For Meetups</a> #}
                     </div>
 
-                    <div class="col-sm-3 col-xs-12">
+                    {# <div class="col-sm-3 col-xs-12">
                         {% include 'social.html' %}
-                    </div>
+                    </div> #}
                 </div>
             </div>
         </section><!-- section.tl-bg-gray -->

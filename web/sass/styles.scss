@@ -23,6 +23,13 @@ header {
     }
 }
 
+.nav {
+    a i.fa{
+        font-size: 24px;
+        color: $brand-success;
+    }
+}
+
 .tl-bg-gold {
     background-color: $brand-success;
 }
