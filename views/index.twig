@@ -30,6 +30,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Resources for Meetups</a></li>
+            <li><a href="#calendar">Calendar</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://twitter.com/techlancaster" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
@@ -61,12 +62,29 @@
                         {% include 'social.html' %}
                     </div> #}
                 </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <!--<a class="attention-box" href="#">
+                            Starting a new meetup?  Check out our guide assembled by other local organizers.
+                        </a>-->
+                    </div>
+                    <div class="col-sm-4">
+                        <a class="attention-box" href="#">
+                            Want to start a meetup?  Check out our guide assembled by other local organizers.
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <!--<a class="attention-box" href="#">
+                            Starting a new meetup?  Here are some things you should know.
+                        </a>-->
+                    </div>
+                </div>
             </div>
         </section><!-- section.tl-bg-gray -->
 
         <section class="tl-bg-light-blue tl-section-cal">
             {# TODO make this a link to the google calendar #}
-            <h1 class="tl-bg-gold tl-section-header">Community Meetups</h1>
+            <h1 class="tl-bg-gold tl-section-header" id="calendar">Community Meetups</h1>
 
             <div class="container">
                 <div class="row tl-event-tiles">
