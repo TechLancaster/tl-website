@@ -3,7 +3,7 @@ conf/*
 !conf/quickstart.php
 web/.sass-cache
 web/stylesheets/*.css
-
+web/events.json
 # Package Files
 /vendor/
 
