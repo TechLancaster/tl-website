@@ -282,7 +282,15 @@ a {
       border: none;
     }
   }
+}
 
+.attention-box {
+  border: 2px solid $light-blue;
+  text-align: center;
+  color: $light-blue;
+  padding:20px 10px 25px 10px;
+  margin-top: 20px;
+  display: block;
 }
 
 //

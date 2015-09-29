@@ -92,6 +92,10 @@ $app->get('/meetup', function () use ($app) {
     ));
 });
 
+$app->get('/resources', function () use ($app) {
+    return $app['twig']->render('resources.twig', array());
+});
+
 $app->get('/', function () use ($app) {
     if (file_exists("events.json") &&
         ($file = file_get_contents("events.json")) !== false

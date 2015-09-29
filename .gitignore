@@ -4,7 +4,6 @@ conf/*
 web/.sass-cache
 web/stylesheets/*.css
 web/events.json
-
 # Package Files
 /vendor/
 
