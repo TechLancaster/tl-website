@@ -134,6 +134,8 @@ $app->get('/', function () use ($app) {
         if (strlen($short_location) > 30) {
             $short_location = wordwrap($short_location, 30);
             $short_location = substr($short_location, 0, strpos($short_location, "\n"));
+            // trim non-alphanumeric characters off the end of string
+            $short_location = preg_replace('/[^a-z\d]+$/i', '', $short_location);
         }
         // create location as link with short text
         $event['location'] = '<a href="https://www.google.com/maps/?q=' . $event['location'] . '" >' . $short_location . '</a>';
