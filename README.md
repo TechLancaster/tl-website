@@ -19,9 +19,9 @@ Mi casa es su casa. Everyone is welcome to submit issues and/or pull requests. O
 4. Run `bundle` to grab other dependencies
 5. Move to the `/web` directory and run `compass compile` to compile the sass
 6. _Optional:_ You can also run `compass watch` to work on sass files and auto-compile them
-7. Also in `/web`, run `php -S localhost:8000` to serve up the project
-8. View the project in a browser at that url
-9. _Note:_ In order to populate the events, visit localhost:8000/fetchevents
+7. Make a copy of `events-example.json` called `events.json` so the calendar has content.
+8. _Note:_ The live site pulls data from the community calendar and writes to `events.json`, but you can just use our dummy file of old data instead of bothering with this step.
+9. Finally, run `php -S localhost:8000` to serve up the project and view it in a browser!
 
 ## Details
 Our initial thoughts are as follows:
