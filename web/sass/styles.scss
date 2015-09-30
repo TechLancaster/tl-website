@@ -24,10 +24,63 @@ header {
     }
 }
 
-.nav {
-    a i.fa{
-        font-size: 24px;
-        color: $brand-success;
+nav.navbar {
+    border: none;
+    background-color: $gray;
+
+    .navbar-collapse {
+        margin-left: -30px;
+    }
+
+    .navbar-toggle {
+        transition: border-color 0.3s;
+
+        .icon-bar {
+            transition: background-color 0.3s;
+        }
+        &:hover {
+            border-color: $brand-success;
+            .icon-bar {
+                background-color: $brand-success;
+            }
+        }
+    }
+}
+
+nav.navbar ul.nav {
+    li {
+        a {
+            padding: 10px 30px;
+            line-height: 28px;
+            border-width: 2px;
+
+            i.fa {
+                font-size: 24px;
+                color: $body-bg;
+                transition: color 0.3s;
+            }
+
+            &:hover {
+                color: $brand-success;
+
+                i.fa {
+                    color: $brand-success;
+                }
+            }
+        }
+
+        &.active {
+            a {
+                border-bottom: 2px solid $body-bg;
+                color: $body-bg;
+                background: none;
+                &:hover {
+                    background: none;
+                    color: $brand-success;
+                    border-color: $brand-success;
+                }
+            }
+        }
     }
 }
 
