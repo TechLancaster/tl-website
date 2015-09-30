@@ -31,6 +31,20 @@ nav.navbar {
     .navbar-collapse {
         margin-left: -30px;
     }
+
+    .navbar-toggle {
+        transition: border-color 0.3s;
+
+        .icon-bar {
+            transition: background-color 0.3s;
+        }
+        &:hover {
+            border-color: $brand-success;
+            .icon-bar {
+                background-color: $brand-success;
+            }
+        }
+    }
 }
 
 nav.navbar ul.nav {
