@@ -304,8 +304,8 @@ $headings-color:          $gray-lighter;
 
 // Medium screen / desktop
 //** Deprecated `$screen-md` as of v3.0.1
-// $screen-md:                  992px
-// $screen-md-min:              $screen-md
+$screen-md:                  992px;
+$screen-md-min:              $screen-md;
 //** Deprecated `$screen-desktop` as of v3.0.1
 // $screen-desktop:             $screen-md-min
 
@@ -331,7 +331,7 @@ $headings-color:          $gray-lighter;
 $grid-gutter-width:         60px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-// $grid-float-breakpoint:     $screen-sm-min
+$grid-float-breakpoint:     $screen-md-min;
 //** Point at which the navbar begins collapsing.
 // $grid-float-breakpoint-max: ($grid-float-breakpoint - 1)
 
@@ -410,9 +410,9 @@ $grid-gutter-width:         60px;
 // $navbar-inverse-brand-hover-bg:             transparent
 
 // Inverted navbar toggle
-// $navbar-inverse-toggle-hover-bg:            #333
-// $navbar-inverse-toggle-icon-bar-bg:         #fff
-// $navbar-inverse-toggle-border-color:        #333
+$navbar-inverse-toggle-hover-bg:            none;
+$navbar-inverse-toggle-icon-bar-bg:         $body-bg;
+$navbar-inverse-toggle-border-color:        $body-bg;
 
 //== Navs
 //
