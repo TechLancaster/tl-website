@@ -1,0 +1,3 @@
+techlancaster_web:
+    resource: "@TechlancasterWebBundle/Resources/config/routing.yml"
+    prefix:   /

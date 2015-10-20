@@ -1,0 +1,15 @@
+techlancaster_web_homepage:
+    path:     /
+    defaults: { _controller: TechlancasterWebBundle:Default:index }
+
+techlancaster_fetch_events:
+    path:     /fetchevents
+    defaults: { _controller: TechlancasterWebBundle:Default:fetch }
+
+techlancaster_meetup:
+    path:     /meetup
+    defaults: { _controller: TechlancasterWebBundle:Default:meetup }
+
+techlancaster_resources:
+    path:     /resources
+    defaults: { _controller: TechlancasterWebBundle:Default:resources }
