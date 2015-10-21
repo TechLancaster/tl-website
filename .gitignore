@@ -1,14 +1,18 @@
-# Project Files
-conf/*
-!conf/quickstart.php
-web/.sass-cache
-web/stylesheets/*.css
-web/events.json
-# Package Files
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/app/phpunit.xml
+/build/
 /vendor/
-
-# IDE Files
+/bin/*
+!/bin/quickstart.php
+/composer.phar
+.gems
 .idea
-
-# OS Files
-.DS_Store
+calendar-api-quickstart.json
+client_secret.json
+events.json
