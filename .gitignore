@@ -10,7 +10,6 @@
 /vendor/
 /bin/*
 !/bin/quickstart.php
-/composer.phar
 .gems
 .idea
 calendar-api-quickstart.json
