@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<header role="banner">
+    <div class="container login">
+        <div class="row">
+            <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
