@@ -20,7 +20,7 @@ class Builder extends ContainerAware
     public function rightMenu(FactoryInterface $factory, array $options)
     {
         $menu = $factory->createItem('root');
-        $menu->addChild('Next TL -  Nov. 17', array('route' => 'techlancaster_meetup'));
+        $menu->addChild('Next TL -  Jan. 19th', array('route' => 'techlancaster_meetup'));
 
         return $menu;
     }
