@@ -1,5 +1,6 @@
 services:
     app.form.registration:
-        class: Techlancaster\Bundle\WebBundle\Form\RegistrationType
+        class: Techlancaster\Bundle\WebBundle\Form\RegistrationFormType
+        arguments: ['Techlancaster\Bundle\WebBundle\Entity\User']
         tags:
-            - { name: form.type, alias: app_user_registration }
+            - { name: form.type, alias: tl_user_registration }
