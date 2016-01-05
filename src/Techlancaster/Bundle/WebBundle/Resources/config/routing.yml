@@ -13,3 +13,8 @@ techlancaster_meetup:
 techlancaster_resources:
     path:     /resources
     defaults: { _controller: TechlancasterWebBundle:Default:resources }
+
+techlancaster_events:
+    resource: "@TechlancasterWebBundle/Controller/EventController.php"
+    prefix:   /event
+    type:     annotation
