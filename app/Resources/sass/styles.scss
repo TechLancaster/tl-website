@@ -22,6 +22,10 @@ header {
     img.logo {
         max-height: 300px;
     }
+    .login {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
 }
 
 nav.navbar {
@@ -381,5 +385,11 @@ a {
         color: $brand-primary;
       }
     }
+  }
+}
+
+#fos_user_registration_form {
+  label.captcha {
+    margin-right: 30px;
   }
 }

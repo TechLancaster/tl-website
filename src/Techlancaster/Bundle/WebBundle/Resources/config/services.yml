@@ -1,4 +1,6 @@
 services:
-#    techlancaster_web.example:
-#        class: Techlancaster\Bundle\WebBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    app.form.registration:
+        class: Techlancaster\Bundle\WebBundle\Form\RegistrationFormType
+        arguments: ['Techlancaster\Bundle\WebBundle\Entity\User']
+        tags:
+            - { name: form.type, alias: tl_user_registration }

@@ -21,7 +21,10 @@
         "knplabs/knp-menu-bundle": "^2.1",
         "components/jquery": "1.11.3",
         "twbs/bootstrap-sass": "^3.3",
-        "google/apiclient": "^1.1"
+        "google/apiclient": "^1.1",
+        "friendsofsymfony/user-bundle": "^1.3",
+        "ircmaxell/password-compat": "^1.0",
+        "gregwar/captcha-bundle": "1.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
