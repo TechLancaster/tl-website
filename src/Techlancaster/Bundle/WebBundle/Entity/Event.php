@@ -4,25 +4,46 @@ namespace Techlancaster\Bundle\WebBundle\Entity;
 
 use JsonSerializable;
 use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Class Event
+ * @package Techlancaster\Bundle\WebBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table()
+ */
 class Event implements JsonSerializable
 {
-    /** @var $id int */
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
     private $id;
 
-    /** @var $start DateTime */
+    /**
+     * @ORM\Column(type="datetime")
+     */
     private $start;
 
-    /** @var $end DateTime */
+    /**
+     * @ORM\Column(type="datetime")
+     */
     private $end;
 
-    /** @var $description string */
+    /**
+     * @ORM\Column(type="string")
+     */
     private $description;
 
-    /** @var $location string */
+    /**
+     * @ORM\Column(type="string")
+     */
     private $location;
 
-    /** @var $summary string */
+    /**
+     * @ORM\Column(type="string")
+     */
     private $summary;
 
     /**
