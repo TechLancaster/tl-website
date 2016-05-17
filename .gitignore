@@ -10,6 +10,7 @@
 /vendor/
 /bin/*
 !/bin/quickstart.php
+!/bin/deploy.sh
 /composer.phar
 .gems
 .idea
