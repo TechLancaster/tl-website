@@ -20,7 +20,8 @@ class Builder extends ContainerAware
     public function rightMenu(FactoryInterface $factory, array $options)
     {
         $menu = $factory->createItem('root');
-        $menu->addChild('Meetup -  October 18th', array('route' => 'techlancaster_meetup'));
+        $next_meetup_ts = time() <= strtotime('third tuesday') ? strtotime('third tuesday') : strtotime('third tuesday next month');
+        $menu->addChild('Meetup - ' . date('F jS', $next_meetup_ts), array('route' => 'techlancaster_meetup'));
         $menu->addChild('Members', array('route' => 'fos_user_security_login'));
 
         if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
