@@ -131,7 +131,7 @@ class DefaultController extends Controller
 
     public function meetupAction()
     {
-        $next_meetup_ts = time() <= strtotime('third tuesday') ? strtotime('third tuesday') : strtotime('third tuesday next month');
+        $next_meetup_ts = strtotime('today') <= strtotime('third tuesday of this month') ? strtotime('third tuesday of this month') : strtotime('third tuesday of next month');
         return $this->render(
             'TechlancasterWebBundle:Default:meetup.html.twig',
             array(
